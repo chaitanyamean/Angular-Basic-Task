@@ -1,0 +1,185 @@
+<div class="container mt-3">
+  <h3 style="text-align: center">{{route.snapshot.params.id1}} Details</h3>
+</div>
+
+<div class="container mt-4" *ngIf="data">
+  <!-- books view starts -->
+  <div *ngIf="id1 === 'books'">
+    <div class="card" style="width: 100%;">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Name: {{data.name}}</li>
+        <li class="list-group-item">Media Type: {{data.mediaType}}</li>
+        <li class="list-group-item">Isbn: {{data.isbn}}</li>
+        <li class="list-group-item">Publisher: {{data.publisher}}</li>
+        <li class="list-group-item">Number of pages: {{data.numberOfPages}}</li>
+        <li class="list-group-item">Country: {{data.country}}</li>
+        <li class="list-group-item">Released: {{data.released | date}}</li>
+      </ul>
+    </div>
+    <div class="card mt-3" style="width: 100%;">
+      <div class="card-body">
+        <h6>Authors</h6>
+        <p *ngFor="let item of data.authors">{{item}}
+        </p>
+      </div>
+    </div>
+    <div class="card mt-3" style="width: 100%;">
+      <div class="card-body">
+        <h6>Pov Charaters</h6>
+        <p *ngFor="let item of data.povCharacters">
+          <a href="{{item}}" target="_blank">{{item}}</a>
+          <br>
+        </p>
+      </div>
+    </div>
+    <div class="card mt-3" style="width: 100%;">
+      <div class="card-body">
+        <h6>Charaters</h6>
+        <p *ngFor="let item of data.characters">
+          <a href="{{item}}" target="_blank">{{item}}</a>
+          <br>
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- books view ends -->
+
+
+  <!-- charaters view starts -->
+  <div *ngIf="id1 === 'characters'">
+    <div class="card" style="width: 100%;">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Name: {{data.name}}</li>
+        <li class="list-group-item">Gender: {{data.gender}}</li>
+        <li class="list-group-item">Father: {{data.father}}</li>
+        <li class="list-group-item">Mother: {{data.mother}}</li>
+        <li class="list-group-item">died: {{data.died}}</li>
+        <li class="list-group-item">Culture: {{data.culture}}</li>
+        <li class="list-group-item">Born: {{data.born}}</li>
+        <li class="list-group-item">Spouse: {{data.spouse}}</li>
+        <li class="list-group-item">URL: {{data.url}}</li>
+      </ul>
+    </div>
+    <div class="card mt-3" style="width: 100%;" *ngIf="data.aliases.length>0">
+      <div class="card-body">
+        <h6>Aliases</h6>
+        <p *ngFor="let item of data.aliases">{{item}}
+        </p>
+      </div>
+    </div>
+    <div class="card mt-3" style="width: 100%;" *ngIf="data.allegiances.length>0">
+      <div class="card-body">
+        <h6>allegiances</h6>
+        <p *ngFor="let item of data.allegiances">
+          <a href="{{item}}" target="_blank">{{item}}</a>
+          <br>
+        </p>
+      </div>
+    </div>
+    <div class="card mt-3" style="width: 100%;" *ngIf="data.books.length>0">
+      <div class="card-body">
+        <h6>Books</h6>
+        <p *ngFor="let item of data.books">
+          <a href="{{item}}" target="_blank">{{item}}</a>
+          <br>
+        </p>
+      </div>
+    </div>
+    <div class="card mt-3" style="width: 100%;" *ngIf="data.playedBy.length>0">
+      <div class="card-body">
+        <h6>Played By</h6>
+        <p *ngFor="let item of data.playedBy">{{item}}
+        </p>
+      </div>
+    </div>
+    <div class="card mt-3" style="width: 100%;" *ngIf="data.povBooks.length>0">
+      <div class="card-body">
+        <h6>Pov Books</h6>
+        <p *ngFor="let item of data.povBooks">{{item}}
+        </p>
+      </div>
+    </div>
+    <div class="card mt-3" style="width: 100%;" *ngIf="data.titles.length>0">
+      <div class="card-body">
+        <h6>Tites</h6>
+        <p *ngFor="let item of data.titles">{{item}}
+        </p>
+      </div>
+    </div>
+    <div class="card mt-3 mb-3" style="width: 100%;" *ngIf="data.tvSeries.length>0">
+      <div class="card-body">
+        <h6>TV Series</h6>
+        <p *ngFor="let item of data.tvSeries">{{item}}
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- books view starts -->
+
+
+  <div *ngIf="id1 === 'houses'">
+    <div class="card" style="width: 100%;">
+      <div class="card-body">
+        <h3>Details</h3>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Name: {{data.name}}</li>
+        <li class="list-group-item">Region: {{data.region}}</li>
+        <li class="list-group-item">Coat Of Arms: {{data.coatOfArms}}</li>
+        <li class="list-group-item">Current Lord: {{data.currentLord}}</li>
+        <li class="list-group-item">Died Out: {{data.diedOut}}</li>
+        <li class="list-group-item">Founded: {{data.founded}}</li>
+        <li class="list-group-item">Heir: {{data.heir}}</li>
+        <li class="list-group-item">Overlord: {{data.overlord}}</li>
+        <li class="list-group-item">url: {{data.url}}</li>
+        <li class="list-group-item">words: {{data.words}}</li>
+      </ul>
+    </div>
+
+    <div class="card mt-3" style="width: 100%;" *ngIf="data.ancestralWeapons.length>0">
+      <div class="card-body">
+        <h6>Ancestral Weapons</h6>
+        <p *ngFor="let item of data.ancestralWeapons">{{item}}
+        </p>
+      </div>
+    </div>
+
+    <div class="card mt-3" style="width: 100%;" *ngIf="data.cadetBranches.length>0">
+      <div class="card-body">
+        <h6>Cadet Branches</h6>
+        <p *ngFor="let item of data.cadetBranches">{{item}}
+        </p>
+      </div>
+    </div>
+
+    <div class="card mt-3" style="width: 100%;" *ngIf="data.seats.length>0">
+      <div class="card-body">
+        <h6>Seats</h6>
+        <p *ngFor="let item of data.seats">{{item}}
+        </p>
+      </div>
+    </div>
+
+    <div class="card mt-3" style="width: 100%;" *ngIf="data.swornMembers.length>0">
+      <div class="card-body">
+        <h6>Sworn Members</h6>
+        <p *ngFor="let item of data.swornMembers">
+          <a href="{{item}}" target="_blank">{{item}}</a>
+          <br>
+
+        </p>
+      </div>
+    </div>
+    <div class="card mt-3 mb-3" style="width: 100%;" *ngIf="data.titles.length>0">
+      <div class="card-body">
+        <h6>Titles</h6>
+        <p *ngFor="let item of data.titles">{{item}}
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div>
