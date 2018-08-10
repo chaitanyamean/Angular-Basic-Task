@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 //import { Observable, of } from 'rxjs';
 
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 // import {Observable} from 'rxjs/Observable';
 
@@ -12,30 +12,34 @@ import {HttpClient} from '@angular/common/http';
 export class ApiserviceService {
 
   constructor(private http: HttpClient) { }
-baseurl='https://anapioficeandfire.com/api'
+  baseurl = 'https://anapioficeandfire.com/api'
 
 
-getBooksData(){
+  getBooksData() { // get books service starts
+    let response = this.http.get(this.baseurl + '/books');
+    return response;
+  }
+  // get books service ends
 
- let response =  this.http.get(this.baseurl + '/books');
- return response;
-}
+  // get charaters service starts
+  getCharatersData() {
+    let response = this.http.get(this.baseurl + '/characters');
+    return response;
+  }
+  // get charaters service ends
 
-getCharatersData(){
+  // gethouse service starts
+  gethouseData() {
+    let response = this.http.get(this.baseurl + '/houses');
+    return response;
+  }
+  // gethouse service ends
 
-  let response =  this.http.get(this.baseurl + '/characters');
-  return response;
- }
-
- gethouseData(){
-
-  let response =  this.http.get(this.baseurl + '/houses');
-  return response;
- }
-
- getDatabyId(type: string, idx: number) {
-  let response =  this.http.get(this.baseurl + '/' + type + '/' + idx );
-  return response;
- }
+  // get data by id service starts
+  getDatabyId(type: string, idx: number) {
+    let response = this.http.get(this.baseurl + '/' + type + '/' + idx);
+    return response;
+  }
+  // get data by id service ends
 
 }

@@ -17,6 +17,12 @@
   </div>
 </div>
 
+
+
+<div class="container" *ngIf="isLoading">
+  <h5 style="text-align: center">Loading Please Wait...</h5>
+</div>
+
 <div class="container mt-4" *ngIf="finalData">
   <div class="row">
     <div *ngFor="let item of finalData" class="col-md-4">

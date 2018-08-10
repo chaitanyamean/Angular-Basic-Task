@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiserviceService } from '../apiservice.service';
+import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-item-view',
   templateUrl: './item-view.component.html',
@@ -11,8 +13,9 @@ export class ItemViewComponent implements OnInit {
   id: number;
   id1: string;
   data: any;
+  isLoading: boolean
 
-  constructor(public route: ActivatedRoute, private service: ApiserviceService) {
+  constructor(public route: ActivatedRoute, private service: ApiserviceService, public location: Location) {
 
     this.id= route.snapshot.params.id;
 
@@ -29,15 +32,20 @@ export class ItemViewComponent implements OnInit {
    }
 
   ngOnInit() {
-
+    this.isLoading = true;
     this.service.getDatabyId(this.id1, this.id).subscribe(response => {
       console.log('data', response);
       this.data = response;
+      this.isLoading = false;
       
     }, error => {
       console.log(error);
       
     });
+  }
+
+  goback() {
+    this.location.back(); // <-- go back to previous location
   }
 
 }
